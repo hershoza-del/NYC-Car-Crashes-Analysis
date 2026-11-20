@@ -4,7 +4,7 @@ As NYC gradually reopened in the second half of 2021, following the COVID-19 pan
 
 ## Disclaimers
 
-- **With n = 5,928, almost every test is significant:** Effect sizes of V, w, η², and odds ratios can hoist a large difference.
+- **With n = 57,946, almost every test is significant:** Effect sizes of V, w, η², or any other odds ratios can hoist a large difference.
 - **Some rows have missing boroughs:** From the original dataset, there were more rows than I thought that didn't state the boroughs. However, I was able to figure it out as the original dataset listed street names, instead. While I was able to uncover most of the missing boroughs, I was not able to uncover all of them. Any row with a missing borough is left **blank**.
 - **MOST IMPORTANTLY:** Based on my discretion, not all categorical/numerical values from the original dataset were taken into account. Also, the statistical results down below are solely based from my altered dataset. 
 
@@ -21,85 +21,75 @@ As NYC gradually reopened in the second half of 2021, following the COVID-19 pan
 | Source | https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95/about_data, Police Department (NYPD) |
 | Coverage | Car crashes from July 1, 2021 to December 31, 2021 |
 | Rows | 57,946 car crashes |
-| Key fields | units by income tier, total units, counted (affordable) units, program group, start date, extended-affordability flag |
 
 ## Findings
 
 ### Question 1: When do crashes happen?
 
-| Project size | 100% affordable | Mixed-income |
-|---|---|---|
-| Small (1–10 units) | 74.5% | 25.5% |
-| Medium (11–100 units) | 31.5% | 68.5% |
-| Large (100+ units) | 60.5% | 39.5% |
+| Time period | Crashes | Share of crashes | Injury rate | Fatal crashes per 1,000 |
+|---|---:|---:|---:|---:|
+| Late night (0–5) | 8,704 | 15.0% | 33.5% | **6.2** |
+| Morning rush (6–9) | 8,968 | 15.5% | 32.7% | 2.5 |
+| Midday (10–15) | 17,817 | **30.7%** | 35.7% | 1.9 |
+| Evening rush (16–19) | 13,340 | 23.0% | 39.4% | 1.4 |
+| Evening (20–23) | 9,117 | 15.7% | **41.6%** | 3.4 |
 
 **Statistical Tests**
 
 | Test | Result | What it means |
 |---|---|---|
-| Spearman correlation (size vs. affordable share) | ρ = −0.34, p < 0.001 | Bigger projects have a smaller affordable share (moderate effect) |
-| Chi-square (size group × fully affordable) | χ²(2) = 906.0, p < 0.001, Cramér's V = 0.39 | Size group and being 100% affordable are related (moderate to strong) |
-| Logistic regression (fully affordable ~ log size) | b = −0.376, z = −25.7, p < 0.001; OR per doubling = 0.77 | Each time size doubles, the odds of being 100% affordable drop by about 23% |
+| Chi-square goodness-of-fit (are crashes spread evenly over 24 hours?) | χ²(23) = 6,205.8, p < 0.001, Cohen's w = 0.33 | Crashes are not spread evenly across the day (medium effect) |
+| Logistic regression (injury ~ time period + weekday), reference = Midday, Monday | Evening OR = 1.28 (95% CI 1.22–1.35); Evening rush OR = 1.17 (1.12–1.23); Late night OR = 0.91 (0.86–0.96); Morning rush OR = 0.88 (0.83–0.93); all p < 0.001 | Compared with midday, the odds that a crash injures someone are 28% higher in the evening and 17% higher in the evening rush, and about 10% lower late at night and in the morning rush |
+| Same model, weekday terms | Only Thursday reaches p < 0.05 (OR = 1.07, p = 0.037); all other days p > 0.08 | The day of the week barely affects whether a crash causes an injury. The Thursday result would not survive a correction for testing six days |
 
 **Key Takeaways**
 
-- Projects fall into two groups: **100% affordable**, or **mixed-income at about 20–30% affordable**. Few projects land in between, which suggests developers aim at specific targets instead of choosing an affordable share freely.
-- The 20–30% band matches the city's rules. Policies like Mandatory Inclusionary Housing (MIH) and the 421-a / Affordable New York tax break require developers to set aside about 20–30% of a building's floor area or units as affordable, income-restricted housing. Most mixed-income buildings set aside the minimum the rules require.
-- Bigger projects tend to have a smaller affordable share. The relationship isn't a straight line, though, as the next point shows.
-- **Medium projects (11–100 units) are the most likely to be mixed-income:** only 31.5% are fully affordable, compared with 74.5% of small projects and 60.5% of large projects.
-- 73% of small projects come from Homeowner Assistance, which is nearly always fully affordable.
-- Many large projects are 100% affordable buildings financed directly by the city.
-- Medium projects fall in between, where a lot of the mixed-income buildings are.
+- 
 
 ### Question 2: Where do crashes happen?
 
-| Income tier | % of AMI (Area Median Income) | Share of affordable units |
-|---|---|---|
-| Extremely Low | 0–30% | 18.4% |
-| Very Low | 31–50% | 27.1% |
-| Low | 51–80% | **34.1%** |
-| Moderate | 81–120% | 6.1% |
-| Middle | 121–165% | 14.2% |
+| Borough | Crashes | Population (2020) | Median daily crashes per 100,000 residents | Injury rate | Fatal crashes |
+|---|---:|---:|---:|---:|---:|
+| Bronx | 10,093 | 1,472,654 | **3.73** | 36.2% | 30 |
+| Brooklyn | 18,511 | 2,736,074 | 3.71 | **37.6%** | **52** |
+| Queens | 15,758 | 2,405,464 | 3.58 | 36.6% | 31 |
+| Manhattan | 9,395 | 1,694,251 | 3.07 | 37.0% | 31 |
+| Staten Island | 2,684 | 495,747 | 2.82 | 32.6% | 6 |
 
 **Statistical Tests**
 
 | Test | Result | What it means |
 |---|---|---|
-| Chi-square goodness-of-fit (are the 5 tiers equal?) | χ²(4) = 76,356, p < 0.001, Cohen's w = 0.49 | Units are not split evenly across tiers (medium to large effect) |
-| Friedman test (tiers within each project) | χ²(4) = 2,814.5, p < 0.001 | Tier counts differ within the same projects |
-| Paired Wilcoxon, Holm-adjusted | All 10 pairs p < 0.01 | Every pair of tiers differs; the closest pair is Extremely Low vs. Very Low (p = 0.002) |
-| Chi-square (program × tier) | χ²(12) = 73,021, p < 0.001, Cramér's V = 0.28 | Each program has a different tier mix (small to moderate effect) |
+| Kruskal-Wallis (daily crash rate ~ borough) | χ²(4) = 196.6, p < 0.001, ε² = 0.21 | Daily crash rates per resident differ across boroughs (large effect) |
+| Test of equal proportions (injury share by borough) | χ²(4) = 27.1, p < 0.001, Cramér's V = 0.02 | Injury shares differ, but the difference is very small (32.6% to 37.6%) |
 
 **Key Takeaways**
 
-- **Low income (51–80% AMI) gets the largest share at 34%. Moderate income gets the smallest at 6%.** "Low income" goes up to 80% of AMI, so the biggest group of units is not aimed at the city's poorest households.
-- Extremely Low and Very Low together get about 45% of units. That's a large share, but it's still less than half.
-- The mix depends on the program:
-  - **Multifamily Finance** serves the lowest incomes most: 56% of its units go to Extremely Low or Very Low. These projects get direct city funding, which makes deeper affordability possible.
-  - **Multifamily Incentives** (tax-incentive and inclusionary projects) puts **38% of its units in the Middle tier, which is tied with Low tier**, up to 165% of AMI. This fits 421-a options that allowed affordable units at up to 130% of AMI. A tax break alone covers less of the cost, so these projects lean toward higher incomes.
+- 
 
 ### Question 3: Why do crashes happen? What causes them?
 
-| Program | Projects | Median affordable units |
-|---|---|---|
-| Multifamily Finance | 1,196 | 104 |
-| Small Homes | 46 | 36 |
-| Multifamily Incentives | 2,742 | 9 |
-| Homeowner Assistance | 1,944 | 1 |
+| Primary contributing factor | Crashes | Injury rate | Fatal crashes | Fatal crashes per 1,000 |
+|---|---:|---:|---:|---:|
+| Driver Inattention/Distraction | 13,767 | 40% | 19 | 1.4 |
+| Failure to Yield Right-of-Way | 4,040 | **61%** | 8 | 2.0 |
+| Following Too Closely | 3,868 | 40% | 1 | 0.3 |
+| Passing or Lane Usage Improper | 2,704 | 26% | 1 | 0.4 |
+| Passing Too Closely | 2,254 | 10% | 0 | 0.0 |
+| Unsafe Speed | 2,081 | 45% | **43** | **20.7** |
+| Backing Unsafely | 1,807 | 18% | 1 | 0.6 |
+| Traffic Control Disregarded | 1,701 | 58% | 4 | 2.4 |
+| Other Vehicular | 1,572 | 32% | 0 | 0.0 |
+| Turning Improperly | 1,333 | 33% | 4 | 3.0 |
 
 **Statistical Tests**
 
 | Test | Result | What it means |
 |---|---|---|
-| Welch's ANOVA (log size ~ program) | F(3, 217.2) = 10,015, p < 0.001, η² = 0.73 | Program explains about 73% of the variation in project size (very large effect) |
-| Tukey HSD (pairs of programs) | All 6 pairs p < 0.001 | Every program differs in size from every other program |
-| Kruskal-Wallis (raw units) | χ²(3) = 4,653.2, p < 0.001 | Confirms the ANOVA result without assuming normality |
-| Multiple regression (log size ~ program + start year + extended affordability) | R² = 0.73, F(5, 5922) = 3,208, p < 0.001 | Program gaps hold after the controls (see the next table) |
+| Chi-square test of independence (factor × injury) | χ²(10) = 2,507.1, p < 0.001, Cramér's V = 0.24 | The injury rate depends on the cause of the crash (small to moderate effect) |
+| Standardized residuals | More injuries than expected: Failure to Yield (+30.1), Traffic Control Disregarded (+16.7), Unsafe Speed (+6.1). Fewer: Passing Too Closely (−28.9), Backing Unsafely (−18.7), Passing/Lane Usage (−14.6) | Shows which causes drive the overall result |
+| Fisher's exact test, each factor vs. all others (fatal crash), Holm-adjusted | Unsafe Speed OR = 12.57, p < 0.001. Lower odds: Inattention (OR = 0.44, p = 0.005), Following Too Closely (OR = 0.09, p = 0.005), Passing Too Closely (OR = 0, p = 0.03). Others not significant | Speeding crashes have about 12.6 times the odds of being fatal |
 
 **Key Takeaways**
 
-- **Program type explains most of the difference in project size.** Every program differs from every other one, so the programs really build different kinds of projects.
-- **Multifamily Finance builds the biggest projects** (median 104 affordable units). **Homeowner Assistance projects are almost always 1 unit**, because they help individual homeowners instead of building apartments.
-- **Multifamily Incentives has a small median (9 units) but a very wide spread.** Most of its projects are small, but some have thousands of units.
-- **Small Homes has only 46 projects**, so its results are less certain than the other programs'.
-- The gaps between programs barely change after controlling for start year and extended affordability. Program, not timing, drives project size.
+- 
