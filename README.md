@@ -44,7 +44,10 @@ As NYC gradually reopened in the second half of 2021, following the COVID-19 pan
 
 **Key Takeaways**
 
-- 
+- **Crashes peak on weekday afternoons:** 5 PM is the peak of rush hour (3,627 crashes) and 3 AM the quietest (1,085). Rush hour on a Friday afternoon is the worst time of the week.
+- **Weekends flip the pattern:** The afternoon peak flattens, and midnight to 4 AM gets much busier than on weekdays.
+- **Evening crashes are more likely to injure someone (39–42%):** NYC DOT reports that severe pedestrian crashes rise nearly 40% in fall and winter evenings, when darkness falls during rush hour. The data includes the end of daylight saving time ([NYC DOT, Dusk and Darkness](https://www.nyc.gov/html/dot/html/pr2025/vision-zero-dusk-and-darkness-campaign.shtml); [NYC Mayor's Office, 2017](https://www.nyc.gov/office-of-the-mayor/news/687-17/vision-zero-de-blasio-administration-return-dusk-darkness-safety-campaign)).
+- **Late-night crashes are the deadliest (6.2 fatal crashes per 1,000, over 3× midday):** In 2021, speed cameras ran only on weekdays from 6 AM to 10 PM, and 59% of traffic deaths happened while they were off ([NYC Mayor's Office, 2022](https://www.nyc.gov/mayors-office/news/2022/06/mayor-adams-turn-new-york-city-s-speed-cameras-24-7-august-1-following-month-long-public)).
 
 ### Question 2: Where do crashes happen?
 
@@ -65,7 +68,10 @@ As NYC gradually reopened in the second half of 2021, following the COVID-19 pan
 
 **Key Takeaways**
 
-- 
+- **The Bronx and Brooklyn have the highest crash rates per resident** (about 3.7 per 100,000 per day).
+- **Brooklyn has the most crashes and deaths** (52 fatal crashes). This matches city data showing Brooklyn led all boroughs with at least 80 traffic deaths in 2021 ([Streetsblog NYC, citing NYC DOT](https://nyc.streetsblog.org/2022/01/26/number-crunch-inside-the-deadliest-year-in-vision-zero-history)).
+- **Manhattan's low rate is misleading.** About 1.6 million commuters come in each day, roughly doubling its daytime population, so dividing by residents understates how busy its streets are ([U.S. Census Bureau](https://census.gov/newsroom/archives/2013-pr/cb13-r17.html)).
+- **Staten Island has the lowest crash rate and injury share, despite the highest car ownership (83% of households)** ([NY State Comptroller](https://www.osc.ny.gov/press/releases/2024/09/draft-dinapoli-nyc-metro-transportation-costs-grew-slower-other-major-cities-still-rose-29-percent)). Lower density means fewer pedestrians and cyclists get hit: 133 pedestrians and 44 cyclists were injured there, compared with 1,434 and 1,061 in Brooklyn. Its small daily counts also make its rate the least steady.
 
 ### Question 3: Why do crashes happen? What causes them?
 
@@ -92,4 +98,8 @@ As NYC gradually reopened in the second half of 2021, following the COVID-19 pan
 
 **Key Takeaways**
 
-- 
+- **Speed makes crashes deadly.** Unsafe speed causes 4.8% of crashes but 38% of fatal ones. A pedestrian's risk of death rises from 10% at 23 mph to 50% at 42 mph ([AAA Foundation](https://aaafoundation.org/impact-speed-pedestrians-risk-severe-injury-death/)). Nationally, speeding played a part in 28% of fatal crashes in 2021 but only 13% of injury crashes ([NHTSA](https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813473)).
+- **Failure to yield is the most likely cause to injure someone (61%).** It injured 963 pedestrians, close to distraction's 1,057, from a third as many crashes. NYC DOT found it is the main factor in 27% of crashes that kill or seriously injure pedestrians ([NYC TLC](https://www.nyc.gov/assets/tlc/downloads/pdf/tips_for_sharing_street.pdf); [NYC DOT left-turn study](https://www.nyc.gov/html/dot/downloads/pdf/left-turn-pedestrian-and-bicycle-crash-study.pdf)). That finding led to the 2014 Right of Way Law ([NY Court of Appeals](https://www.nycourts.gov/CTAPPS/Decisions/2021/Oct21/52&53opn21-Decision.pdf)).
+- **Running red lights or stop signs is next (58% injury),** usually as high-speed crashes at intersections.
+- **Distraction is the most common cause (32%) but less severe** (fatal OR = 0.44). Because it is so common, it still ranks second in fatal crashes (19).
+- **Low-speed maneuvers rarely injure anyone.** Passing too closely (10%), backing (18%), and improper lane use (26%) are mostly fender-benders.
