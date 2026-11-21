@@ -1,6 +1,6 @@
 # NYC Car Crashes Analysis
 
-As NYC gradually reopened in the second half of 2021, following the COVID-19 pandemic, shifting traffic patterns led to a sharp rebound in severe roadway incidents. This project analyzes NYC motor vehicle collision data to uncover where, when, and why crashes occurred across the five boroughs.
+As NYC gradually reopened in the second half of 2021 following the COVID-19 pandemic, shifting traffic patterns triggered an alarming surge in severe roadway incidents. In fact, July–December 2021 proved to be a devastating period for street safety, marking the deadliest six-month stretch for traffic fatalities since the city launched Vision Zero—its flagship initiative aimed at eliminating traffic deaths and serious injuries—in 2014. In response to this crisis, NYC aggressively expanded its Vision Zero efforts by scaling up 24/7 automated speed enforcement and redesigning high-risk corridors. In this project, I analyze NYC motor vehicle collision data to uncover where, when, and why crashes occurred across the five boroughs.
 
 ## Disclaimers
 
@@ -45,7 +45,8 @@ As NYC gradually reopened in the second half of 2021, following the COVID-19 pan
 **Key Takeaways**
 
 - **Crashes peak on weekday afternoons:** 5 PM is the peak of rush hour and 3 AM in the very early morning is the quietest. Rush hour on a Friday afternoon is the worst time of the week when it came to car crashes.
-- **Evening crashes are more likely to injure someone:** Did you know that severe pedestrian crashes rise nearly 40% in fall and winter evenings, when darkness falls during rush hour? The data from the NYC Department of Transportation includes the end of daylight saving time ([NYC DOT, Dusk and Darkness](https://www.nyc.gov/html/dot/html/pr2025/vision-zero-dusk-and-darkness-campaign.shtml); [NYC Mayor's Office, 2017](https://www.nyc.gov/office-of-the-mayor/news/687-17/vision-zero-de-blasio-administration-return-dusk-darkness-safety-campaign)).
+- **Weekends flip the pattern.** Even though it's not visible based on the statistical tests I ran, the weekend afternoon peak flattens, and the early-morning hours (midnight to 4 AM) are far busier than on weekdays. This matches weekend nightlife travel. Check out my LinkedIn to see the heatmap graph!
+- **Evening crashes are more likely to injure someone:** Did you know that severe pedestrian crashes rise nearly 40% in fall and winter evenings, when darkness falls during rush hour? The data from the NYC Department of Transportation includes the end of daylight saving time ([NYC DOT, Dusk and Darkness](https://www.nyc.gov/html/dot/html/pr2025/vision-zero-dusk-and-darkness-campaign.shtml).
 
 ### Question 2: Where do crashes happen?
 
@@ -67,6 +68,7 @@ As NYC gradually reopened in the second half of 2021, following the COVID-19 pan
 **Key Takeaways**
 
 - **The Bronx and Brooklyn have the highest crash rates per resident, but slightly:** Both boroughs had about 3.7 per 100,000 per day.
+- **Brooklyn has the most crashes, injuries, and deaths.** Based on my dataset, Brooklyn had 52 fatal crashes in from July-December, the most of any borough. 
 - **Manhattan's low rate can be misleading:** Manhattan is the busiest borough in New York City, as around 1.6 million commuters come in each day. This roughly doubles its daytime population, so dividing by residents understates how busy its streets are ([U.S. Census Bureau](https://census.gov/newsroom/archives/2013-pr/cb13-r17.html)).
 - **Staten Island has the lowest crash rate and injury share, despite the highest car ownership:** Staten Island has around a 83% car ownership rate, but its relatively lower density, compared with the other four boroughs, means fewer pedestrians and cyclists get hit. From my altered dataset, for instance, 133 pedestrians and 44 cyclists were injured in Staten Island compared with 1,434 and 1,061 in Brooklyn. ([NY State Comptroller](https://www.osc.ny.gov/press/releases/2024/09/draft-dinapoli-nyc-metro-transportation-costs-grew-slower-other-major-cities-still-rose-29-percent)).
 
@@ -96,6 +98,6 @@ As NYC gradually reopened in the second half of 2021, following the COVID-19 pan
 **Key Takeaways**
 
 - **Speed makes crashes deadly:** Unsafe speed causes 4.8% of crashes but 38% of fatal ones. To put that into perspective, a pedestrian's risk of death rises from 10% at 23 mph to 50% at 42 mph ([AAA Foundation](https://aaafoundation.org/impact-speed-pedestrians-risk-severe-injury-death/)).
-- **Failure to yield is the most likely cause to injure someone:** It injured 963 pedestrians, close to distraction's 1,057, from a third as many crashes. From their data, the NYC Department of Transportation found it is the main factor in 27% of crashes that kill or seriously injure pedestrians ([NYC TLC](https://www.nyc.gov/assets/tlc/downloads/pdf/tips_for_sharing_street.pdf))
+- **Failure to yield is the most likely cause to injure someone:** It injured 963 pedestrians, close to distraction's 1,057, from a third as many crashes. From their data, the NYC Department of Transportation found it is the main factor in 27% of crashes that kill or seriously injure pedestrians ([NYC TLC](https://www.nyc.gov/assets/tlc/downloads/pdf/tips_for_sharing_street.pdf)).
 - **Distraction is the most common cause but less severe:** Even though driver inattention/distraction is so common, it still ranks second in fatal crashes, after unsafe speed.
 - **Low-speed maneuvers rarely injure anyone:** Factors like passing too closely, backing, and improper lane use are mostly fender-benders.
