@@ -96,6 +96,6 @@ As NYC gradually reopened in the second half of 2021, following the COVID-19 pan
 **Key Takeaways**
 
 - **Speed makes crashes deadly:** Unsafe speed causes 4.8% of crashes but 38% of fatal ones. To put that into perspective, a pedestrian's risk of death rises from 10% at 23 mph to 50% at 42 mph ([AAA Foundation](https://aaafoundation.org/impact-speed-pedestrians-risk-severe-injury-death/)).
-- **Failure to yield is the most likely cause to injure someone:** It injured 963 pedestrians, close to distraction's 1,057, from a third as many crashes. From their data, the NYC Department of Transportation found it is the main factor in 27% of crashes that kill or seriously injure pedestrians ([NYC TLC](https://www.nyc.gov/assets/tlc/downloads/pdf/tips_for_sharing_street.pdf)
+- **Failure to yield is the most likely cause to injure someone:** It injured 963 pedestrians, close to distraction's 1,057, from a third as many crashes. From their data, the NYC Department of Transportation found it is the main factor in 27% of crashes that kill or seriously injure pedestrians ([NYC TLC](https://www.nyc.gov/assets/tlc/downloads/pdf/tips_for_sharing_street.pdf))
 - **Distraction is the most common cause but less severe:** Even though driver inattention/distraction is so common, it still ranks second in fatal crashes, after unsafe speed.
 - **Low-speed maneuvers rarely injure anyone:** Factors like passing too closely, backing, and improper lane use are mostly fender-benders.
